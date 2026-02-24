@@ -1,0 +1,43 @@
+.text {
+  font-family: var(--font-family-sans);
+  margin: 0;
+}
+
+/* --- Sizes --- */
+.xs  { font-size: var(--font-size-xs); line-height: var(--line-height-normal); }
+.sm  { font-size: var(--font-size-sm); line-height: var(--line-height-normal); }
+.md  { font-size: var(--font-size-md); line-height: var(--line-height-normal); }
+.lg  { font-size: var(--font-size-lg); line-height: var(--line-height-normal); }
+.xl  { font-size: var(--font-size-xl); line-height: var(--line-height-normal); }
+
+/* --- Weights --- */
+.regular  { font-weight: var(--font-weight-regular);  }
+.medium   { font-weight: var(--font-weight-medium);   }
+.semibold { font-weight: var(--font-weight-semibold); }
+.bold     { font-weight: var(--font-weight-bold);     }
+
+/* --- Colors --- */
+.default { color: var(--color-neutral-900); }
+.muted   { color: var(--color-neutral-600); }
+.subtle  { color: var(--color-neutral-500); }
+.brand   { color: var(--color-brand-700);   }
+.error   { color: var(--color-error-dark);  }
+.success { color: var(--color-success);     }
+
+/* --- Alignment --- */
+.left   { text-align: left;   }
+.center { text-align: center; }
+.right  { text-align: right;  }
+
+/* --- Truncate --- */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Mono --- */
+.mono {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+}

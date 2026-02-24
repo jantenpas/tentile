@@ -1,0 +1,169 @@
+/* ============================================
+   DESIGN TOKENS
+   Brand: Teal
+   Neutrals: Warm gray
+   ============================================ */
+
+:root {
+  /* --- Color: Brand (Teal) --- */
+  --color-brand-50:  #F0FDFA;
+  --color-brand-100: #CCFBF1;
+  --color-brand-200: #99F6E4;
+  --color-brand-300: #5EEAD4;
+  --color-brand-400: #2DD4BF;
+  --color-brand-500: #14B8A6;
+  --color-brand-600: #0D9488;
+  --color-brand-700: #0F766E; /* primary interactive — buttons, links */
+  --color-brand-800: #115E59; /* hover states */
+  --color-brand-900: #134E4A;
+
+  /* --- Color: Neutral (Warm gray) --- */
+  --color-neutral-0:    #FFFFFF;  /* component surfaces — cards, inputs, buttons */
+  --color-neutral-50:   #FAFAF9; /* page background */
+  --color-neutral-100:  #F5F5F4;
+  --color-neutral-200:  #E7E5E4;
+  --color-neutral-300:  #D6D3D1;
+  --color-neutral-400:  #A8A29E;
+  --color-neutral-500:  #78716C;
+  --color-neutral-600:  #57534E;
+  --color-neutral-700:  #44403C;
+  --color-neutral-800:  #292524;
+  --color-neutral-900:  #1C1917; /* body text */
+  --color-neutral-1000: #0C0A09;
+
+  /* --- Color: Semantic --- */
+  --color-success-light: #d3f9d8;
+  --color-success:       #2f9e44;
+  --color-success-dark:  #1e6e2e;
+
+  --color-warning-light: #fff3bf;
+  --color-warning:       #f08c00;
+  --color-warning-dark:  #b35900;
+
+  --color-error-light:   #ffe3e3;
+  --color-error:         #e03131;
+  --color-error-dark:    #a61e1e;
+
+  --color-info-light:    #d0ebff;
+  --color-info:          #1971c2;
+  --color-info-dark:     #0d3d73;
+
+  /* --- Spacing --- */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+
+  /* --- Border Radius --- */
+  --radius-sm:   0.25rem;  /*  4px */
+  --radius-md:   0.5rem;   /*  8px */
+  --radius-lg:   0.75rem;  /* 12px */
+  --radius-xl:   1rem;     /* 16px */
+  --radius-full: 9999px;
+
+  /* --- Typography --- */
+  --font-family-heading: 'Sora', system-ui, sans-serif;
+  --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  --font-size-xs:   0.75rem;   /* 12px */
+  --font-size-sm:   0.875rem;  /* 14px */
+  --font-size-md:   1rem;      /* 16px */
+  --font-size-lg:   1.125rem;  /* 18px */
+  --font-size-xl:   1.25rem;   /* 20px */
+  --font-size-2xl:  1.5rem;    /* 24px */
+  --font-size-3xl:  1.875rem;  /* 30px */
+  --font-size-4xl:  2.25rem;   /* 36px */
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --line-height-tight:  1.2;
+  --line-height-snug:   1.375;
+  --line-height-normal: 1.5;
+  --line-height-loose:  1.75;  /* consumer use */
+
+  --letter-spacing-tight:  -0.025em;
+  --letter-spacing-normal:  0em;
+  --letter-spacing-wide:    0.025em;  /* consumer use */
+  --letter-spacing-wider:   0.05em;   /* consumer use */
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* --- Transitions --- */
+  --transition-fast:   100ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow:   300ms ease;
+
+  /* --- Z-index (consumer use) --- */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-toast:   300;
+}
+
+/* ============================================
+   DARK MODE
+   Add data-theme="dark" to <html> to activate.
+   ============================================ */
+
+[data-theme='dark'] {
+  --color-brand-50:  #0D2E2B;
+  --color-brand-100: #0F3D39;
+  --color-brand-200: #115E59;
+  --color-brand-300: #0F766E;
+  --color-brand-400: #0D9488;
+  --color-brand-500: #14B8A6;
+  --color-brand-600: #2DD4BF;
+  --color-brand-700: #5EEAD4;
+  --color-brand-800: #99F6E4;
+  --color-brand-900: #CCFBF1;
+
+  --color-neutral-0:    #1C1917;
+  --color-neutral-50:   #141412;
+  --color-neutral-100:  #292524;
+  --color-neutral-200:  #44403C;
+  --color-neutral-300:  #57534E;
+  --color-neutral-400:  #78716C;
+  --color-neutral-500:  #A8A29E;
+  --color-neutral-600:  #D6D3D1;
+  --color-neutral-700:  #E7E5E4;
+  --color-neutral-800:  #F5F5F4;
+  --color-neutral-900:  #FAFAF9;
+  --color-neutral-1000: #FFFFFF;
+
+  --color-success-light: #052E16;
+  --color-success:       #4ADE80;
+  --color-success-dark:  #86EFAC;
+
+  --color-warning-light: #2D1F00;
+  --color-warning:       #FBBF24;
+  --color-warning-dark:  #FDE68A;
+
+  --color-error-light:   #2D0A0A;
+  --color-error:         #F87171;
+  --color-error-dark:    #FECACA;
+
+  --color-info-light:    #0A1929;
+  --color-info:          #60A5FA;
+  --color-info-dark:     #BAE6FD;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}

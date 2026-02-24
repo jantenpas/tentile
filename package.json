@@ -1,0 +1,50 @@
+{
+  "name": "tentile",
+  "version": "0.1.0",
+  "description": "A React component library by Jan tenPas — tiles that snap together to build interfaces",
+  "author": "Jan tenPas",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": "./dist/tentile.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "tsc && vite build",
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build",
+    "lint": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/react": "^8.6.17",
+    "@storybook/react-vite": "^8.6.17",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "storybook": "^8.6.17",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^5.0.0-beta.6"
+  }
+}
