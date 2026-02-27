@@ -1,6 +1,6 @@
 {
   "name": "tentile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A React component library by Jan tenPas — tiles that snap together to build interfaces",
   "author": "Jan tenPas",
   "license": "MIT",
