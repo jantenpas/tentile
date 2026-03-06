@@ -31,7 +31,9 @@
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist coverage storybook-static",
+    "cleaner": "npm run clean && rm -rf node_modules"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
