@@ -98,7 +98,7 @@ function WelcomePage() {
         </p>
 
         <div style={styles.badges}>
-          <Badge variant="success">v0.2.0</Badge>
+          <Badge variant="success">v0.3.0</Badge>
           <Badge variant="default">React 18+</Badge>
           <Badge variant="default">TypeScript</Badge>
           <Badge variant="default">CSS Modules</Badge>
