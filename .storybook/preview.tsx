@@ -1,7 +1,30 @@
+import React from 'react'
 import type { Preview } from '@storybook/react'
+import { DocsContainer } from '@storybook/blocks'
+import { themes } from '@storybook/theming'
 import '../src/tokens/index.css'
 import '../src/styles/reset.css'
 import '../src/styles/typography.css'
+
+function ThemedDocsContainer({ children, context }: { children: React.ReactNode; context: any }) {
+  const [isDark, setIsDark] = React.useState(
+    document.documentElement.getAttribute('data-theme') === 'dark'
+  )
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.getAttribute('data-theme') === 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <DocsContainer context={context} theme={isDark ? themes.dark : themes.light}>
+      {children}
+    </DocsContainer>
+  )
+}
 
 const preview: Preview = {
   globalTypes: {
@@ -43,6 +66,9 @@ const preview: Preview = {
       storySort: {
         order: ['Welcome', 'Components'],
       },
+    },
+    docs: {
+      container: ThemedDocsContainer,
     },
   },
 }

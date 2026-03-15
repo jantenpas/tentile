@@ -39,3 +39,15 @@ export type { AlertProps, AlertVariant } from './components/Alert'
 
 export { StatCard } from './components/StatCard'
 export type { StatCardProps, StatCardTrend, TrendDirection } from './components/StatCard'
+
+export { Select } from './components/Select'
+export type { SelectProps, SelectOption } from './components/Select'
+
+export { ProgressBar } from './components/ProgressBar'
+export type { ProgressBarProps, ProgressBarVariant } from './components/ProgressBar'
+
+export { Tabs } from './components/Tabs'
+export type { TabsProps, TabItem } from './components/Tabs'
+
+export { Table } from './components/Table'
+export type { TableProps, TableColumn, TableVariant } from './components/Table'
