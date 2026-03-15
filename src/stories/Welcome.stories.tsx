@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Badge } from '../components/Badge/Badge'
 import { Link } from '../components/Link/Link'
@@ -63,7 +64,17 @@ const styles: Record<string, React.CSSProperties> = {
 }
 
 function WelcomePage() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+  const [isDark, setIsDark] = React.useState(
+    document.documentElement.getAttribute('data-theme') === 'dark'
+  )
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.getAttribute('data-theme') === 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div style={{

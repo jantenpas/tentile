@@ -1,32 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 116 80">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 186 188">
   <defs>
-    <polygon id="tentile-oct" points="8,0 24,0 32,8 32,24 24,32 8,32 0,24 0,8"/>
+    <polygon id="tentile-hex" points="43.3,0 86.6,25 86.6,75 43.3,100 0,75 0,25"/>
   </defs>
 
-  <!-- black border -->
-  <g fill="none" stroke="#000" stroke-width="3">
-    <use href="#tentile-oct" x="0" y="0"/>
-    <use href="#tentile-oct" x="36" y="0"/>
-    <use href="#tentile-oct" x="72" y="0"/>
-    <use href="#tentile-oct" x="0" y="36"/>
-    <use href="#tentile-oct" x="36" y="36"/>
-    <use href="#tentile-oct" x="72" y="36"/>
-  </g>
-
-  <!-- fills -->
-  <g>
-    <use href="#tentile-oct" x="0" y="0" fill="#0F766E"/>
-    <use href="#tentile-oct" x="36" y="0" fill="#0F766E"/>
-    <use href="#tentile-oct" x="72" y="0" fill="#0F766E"/>
-
-    <use href="#tentile-oct" x="0" y="36" fill="#475569"/>
-    <use href="#tentile-oct" x="36" y="36" fill="#0F766E"/>
-    <use href="#tentile-oct" x="72" y="36" fill="#475569"/>
-  </g>
+  <!-- fills: Purple (top) | Teal (bottom-left) | Teal (bottom-right) -->
+  <use href="#tentile-hex" x="43.3" y="0"  fill="#7C3AED"/>
+  <use href="#tentile-hex" x="0"    y="75" fill="#0F766E"/>
+  <use href="#tentile-hex" x="86.6" y="75" fill="#0F766E"/>
 
   <!-- grout -->
   <g fill="none" stroke="#FFFFFF" stroke-width="2">
-    <use href="#tentile-oct" x="0" y="0"/><use href="#tentile-oct" x="36" y="0"/><use href="#tentile-oct" x="72" y="0"/>
-    <use href="#tentile-oct" x="0" y="36"/><use href="#tentile-oct" x="36" y="36"/><use href="#tentile-oct" x="72" y="36"/>
+    <use href="#tentile-hex" x="43.3" y="0"/>
+    <use href="#tentile-hex" x="0"    y="75"/>
+    <use href="#tentile-hex" x="86.6" y="75"/>
   </g>
 </svg>

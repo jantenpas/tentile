@@ -4,7 +4,7 @@ import { create } from '@storybook/theming/create'
 addons.setConfig({
   theme: create({
     base: 'light',
-    brandTitle: 'Tentile',
+    brandTitle: 'Tentile UI',
     brandImage: '/tentile-logo-light.svg',
     brandUrl: 'https://tentile.dev',
     brandTarget: '_self',
