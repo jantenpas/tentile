@@ -1,0 +1,105 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.wrapper.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled .label {
+  cursor: not-allowed;
+}
+
+/* Hide native input */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom checkbox box */
+.indicator {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-neutral-400);
+  background-color: var(--color-neutral-0);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  color: var(--color-neutral-0);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.input:checked + .indicator,
+.input:indeterminate + .indicator {
+  background-color: var(--color-brand-700);
+  border-color: var(--color-brand-700);
+}
+
+.input:focus-visible + .indicator {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+}
+
+.label:hover:not(.disabled > .label) .indicator {
+  border-color: var(--color-brand-700);
+}
+
+.labelText {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-normal);
+}
+
+.hint {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-neutral-500);
+  line-height: var(--line-height-normal);
+  padding-left: calc(1.125rem + var(--space-2));
+}
+
+.errorMessage {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-error-dark);
+  line-height: var(--line-height-normal);
+  padding-left: calc(1.125rem + var(--space-2));
+}
+
+/* Dark mode */
+[data-theme='dark'] .indicator {
+  border-color: var(--color-neutral-500);
+  background-color: var(--color-neutral-800);
+}
+
+[data-theme='dark'] .labelText {
+  color: var(--color-neutral-100);
+}
+
+[data-theme='dark'] .hint {
+  color: var(--color-neutral-400);
+}
