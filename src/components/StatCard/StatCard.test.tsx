@@ -25,16 +25,12 @@ describe('StatCard', () => {
   })
 
   it('renders up trend arrow', () => {
-    render(
-      <StatCard value="42" label="Score" trend={{ direction: 'up', value: '5%' }} />
-    )
+    render(<StatCard value="42" label="Score" trend={{ direction: 'up', value: '5%' }} />)
     expect(screen.getByText('↑')).toBeInTheDocument()
   })
 
   it('renders down trend arrow', () => {
-    render(
-      <StatCard value="42" label="Score" trend={{ direction: 'down', value: '3%' }} />
-    )
+    render(<StatCard value="42" label="Score" trend={{ direction: 'down', value: '3%' }} />)
     expect(screen.getByText('↓')).toBeInTheDocument()
   })
 

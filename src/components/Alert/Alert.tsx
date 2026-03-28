@@ -28,7 +28,9 @@ export function Alert({
 
   return (
     <div role={ROLES[variant]} className={classes}>
-      <span className={styles.icon} aria-hidden="true">{resolvedIcon}</span>
+      <span className={styles.icon} aria-hidden="true">
+        {resolvedIcon}
+      </span>
 
       <div className={styles.content}>
         {title && <p className={styles.title}>{title}</p>}
@@ -36,12 +38,7 @@ export function Alert({
       </div>
 
       {onDismiss && (
-        <button
-          type="button"
-          className={styles.dismiss}
-          aria-label="Dismiss"
-          onClick={onDismiss}
-        >
+        <button type="button" className={styles.dismiss} aria-label="Dismiss" onClick={onDismiss}>
           ✕
         </button>
       )}

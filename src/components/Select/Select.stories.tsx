@@ -35,14 +35,7 @@ export const Default: Story = {
 export const WithValue: Story = {
   render: () => {
     const [value, setValue] = useState('banana')
-    return (
-      <Select
-        label="Favorite fruit"
-        options={FRUITS}
-        value={value}
-        onChange={setValue}
-      />
-    )
+    return <Select label="Favorite fruit" options={FRUITS} value={value} onChange={setValue} />
   },
 }
 
@@ -65,12 +58,6 @@ export const WithError: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <Select
-      label="Favorite fruit"
-      options={FRUITS}
-      value="apple"
-      onChange={() => {}}
-      disabled
-    />
+    <Select label="Favorite fruit" options={FRUITS} value="apple" onChange={() => {}} disabled />
   ),
 }

@@ -17,12 +17,22 @@ describe('RadioGroup', () => {
   })
 
   it('renders a legend when label is provided', () => {
-    render(<RadioGroup name="color" label="Favorite color" options={OPTIONS} value="" onChange={() => {}} />)
+    render(
+      <RadioGroup
+        name="color"
+        label="Favorite color"
+        options={OPTIONS}
+        value=""
+        onChange={() => {}}
+      />
+    )
     expect(screen.getByText('Favorite color')).toBeInTheDocument()
   })
 
   it('does not render a legend when label is omitted', () => {
-    const { container } = render(<RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} />)
+    const { container } = render(
+      <RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} />
+    )
     expect(container.querySelector('legend')).not.toBeInTheDocument()
   })
 
@@ -56,21 +66,37 @@ describe('RadioGroup', () => {
   })
 
   it('renders a hint when provided', () => {
-    render(<RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} hint="Pick one." />)
+    render(
+      <RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} hint="Pick one." />
+    )
     expect(screen.getByText('Pick one.')).toBeInTheDocument()
   })
 
   it('renders an error message when provided', () => {
-    render(<RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} error="Required." />)
+    render(
+      <RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} error="Required." />
+    )
     expect(screen.getByRole('alert')).toHaveTextContent('Required.')
   })
 
   it('renders options in a row when orientation is horizontal', () => {
     const { container: horizontal } = render(
-      <RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} orientation="horizontal" />
+      <RadioGroup
+        name="color"
+        options={OPTIONS}
+        value=""
+        onChange={() => {}}
+        orientation="horizontal"
+      />
     )
     const { container: vertical } = render(
-      <RadioGroup name="color2" options={OPTIONS} value="" onChange={() => {}} orientation="vertical" />
+      <RadioGroup
+        name="color2"
+        options={OPTIONS}
+        value=""
+        onChange={() => {}}
+        orientation="vertical"
+      />
     )
     const hClasses = horizontal.querySelector('[role="radiogroup"]')!.className
     const vClasses = vertical.querySelector('[role="radiogroup"]')!.className
@@ -79,7 +105,14 @@ describe('RadioGroup', () => {
 
   it('applies an extra class to the legend when required', () => {
     const { container: req } = render(
-      <RadioGroup name="color" label="Color" options={OPTIONS} value="" onChange={() => {}} required />
+      <RadioGroup
+        name="color"
+        label="Color"
+        options={OPTIONS}
+        value=""
+        onChange={() => {}}
+        required
+      />
     )
     const { container: notReq } = render(
       <RadioGroup name="color2" label="Color" options={OPTIONS} value="" onChange={() => {}} />
@@ -91,7 +124,14 @@ describe('RadioGroup', () => {
 
   it('does not render hint when error is also present', () => {
     render(
-      <RadioGroup name="color" options={OPTIONS} value="" onChange={() => {}} hint="Pick one." error="Required." />
+      <RadioGroup
+        name="color"
+        options={OPTIONS}
+        value=""
+        onChange={() => {}}
+        hint="Pick one."
+        error="Required."
+      />
     )
     expect(screen.queryByText('Pick one.')).not.toBeInTheDocument()
     expect(screen.getByRole('alert')).toHaveTextContent('Required.')

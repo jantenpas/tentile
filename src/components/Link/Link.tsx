@@ -3,19 +3,8 @@ import styles from './Link.module.css'
 import type { LinkProps } from './Link.types'
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  (
-    {
-      variant = 'default',
-      external = false,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const classes = [styles.link, styles[variant], className ?? '']
-      .filter(Boolean)
-      .join(' ')
+  ({ variant = 'default', external = false, className, children, ...props }, ref) => {
+    const classes = [styles.link, styles[variant], className ?? ''].filter(Boolean).join(' ')
 
     const externalProps = external
       ? {

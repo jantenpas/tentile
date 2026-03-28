@@ -34,9 +34,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
     const Component = Tag as TextAs
 
     const truncateTitle =
-      truncate && typeof children === 'string' && !props.title
-        ? children
-        : undefined
+      truncate && typeof children === 'string' && !props.title ? children : undefined
 
     return (
       <Component ref={ref as never} className={classes} title={truncateTitle} {...props}>

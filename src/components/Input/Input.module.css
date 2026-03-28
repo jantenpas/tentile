@@ -86,8 +86,12 @@
 }
 
 /* --- Icons --- */
-.hasLeading .input  { padding-left: 2.25rem; }
-.hasTrailing .input { padding-right: 2.25rem; }
+.hasLeading .input {
+  padding-left: 2.25rem;
+}
+.hasTrailing .input {
+  padding-right: 2.25rem;
+}
 
 .iconLeading,
 .iconTrailing {
@@ -98,8 +102,12 @@
   pointer-events: none;
 }
 
-.iconLeading  { left: var(--space-3);  }
-.iconTrailing { right: var(--space-3); }
+.iconLeading {
+  left: var(--space-3);
+}
+.iconTrailing {
+  right: var(--space-3);
+}
 
 /* --- Status --- */
 .error .input {
@@ -112,7 +120,6 @@
   outline-offset: 2px;
   box-shadow: none;
 }
-
 
 /* --- Hint / Error message --- */
 .hint {

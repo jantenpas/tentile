@@ -21,7 +21,10 @@ export interface RadioGroupProps {
   required?: boolean
 }
 
-export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface RadioProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   label: string
   value: string
   checked: boolean

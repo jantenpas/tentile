@@ -12,26 +12,11 @@ const defaultSizeMap: Record<HeadingLevel, string> = {
 }
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
-  (
-    {
-      level = 2,
-      size,
-      color = 'default',
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ level = 2, size, color = 'default', className, children, ...props }, ref) => {
     const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
     const resolvedSize = size ?? defaultSizeMap[level]
 
-    const classes = [
-      styles.heading,
-      styles[resolvedSize],
-      styles[color],
-      className ?? '',
-    ]
+    const classes = [styles.heading, styles[resolvedSize], styles[color], className ?? '']
       .filter(Boolean)
       .join(' ')
 

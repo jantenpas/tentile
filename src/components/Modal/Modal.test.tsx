@@ -19,7 +19,11 @@ describe('Modal', () => {
   })
 
   it('renders children', () => {
-    render(<Modal open={true} onClose={() => {}}><p>Body content</p></Modal>)
+    render(
+      <Modal open={true} onClose={() => {}}>
+        <p>Body content</p>
+      </Modal>
+    )
     expect(screen.getByText('Body content')).toBeInTheDocument()
   })
 
@@ -39,7 +43,7 @@ describe('Modal', () => {
   it('calls onClose when backdrop is clicked', async () => {
     const user = userEvent.setup()
     const onClose = vi.fn()
-    const { container } = render(<Modal open={true} onClose={onClose} title="Test" />)
+    render(<Modal open={true} onClose={onClose} title="Test" />)
     await user.click(document.body.querySelector('[data-backdrop="true"]')!)
     expect(onClose).toHaveBeenCalledTimes(1)
   })
@@ -47,7 +51,11 @@ describe('Modal', () => {
   it('does not call onClose when dialog content is clicked', async () => {
     const user = userEvent.setup()
     const onClose = vi.fn()
-    render(<Modal open={true} onClose={onClose} title="Test"><p>Content</p></Modal>)
+    render(
+      <Modal open={true} onClose={onClose} title="Test">
+        <p>Content</p>
+      </Modal>
+    )
     await user.click(screen.getByText('Content'))
     expect(onClose).not.toHaveBeenCalled()
   })
@@ -71,7 +79,7 @@ describe('Modal', () => {
   it('does not call onClose on backdrop click when closeOnBackdrop is false', async () => {
     const user = userEvent.setup()
     const onClose = vi.fn()
-    const { container } = render(<Modal open={true} onClose={onClose} closeOnBackdrop={false} title="Test" />)
+    render(<Modal open={true} onClose={onClose} closeOnBackdrop={false} title="Test" />)
     await user.click(document.body.querySelector('[data-backdrop="true"]')!)
     expect(onClose).not.toHaveBeenCalled()
   })

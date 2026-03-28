@@ -60,15 +60,11 @@ export const Default: Story = {
 }
 
 export const WithLogo: Story = {
-  render: () => (
-    <Header logo={<Logo />} title="Tentile UI" variant="bordered" />
-  ),
+  render: () => <Header logo={<Logo />} title="Tentile UI" variant="bordered" />,
 }
 
 export const WithNav: Story = {
-  render: () => (
-    <Header logo={<Logo />} title="Tentile UI" nav={<NavLinks />} variant="bordered" />
-  ),
+  render: () => <Header logo={<Logo />} title="Tentile UI" nav={<NavLinks />} variant="bordered" />,
 }
 
 export const WithActions: Story = {
@@ -79,8 +75,12 @@ export const WithActions: Story = {
       nav={<NavLinks />}
       actions={
         <>
-          <Button variant="ghost" size="sm">Sign in</Button>
-          <Button variant="primary" size="sm">Get started</Button>
+          <Button variant="ghost" size="sm">
+            Sign in
+          </Button>
+          <Button variant="primary" size="sm">
+            Get started
+          </Button>
         </>
       }
       variant="bordered"
@@ -94,7 +94,11 @@ export const Elevated: Story = {
       logo={<Logo />}
       title="Tentile UI"
       nav={<NavLinks />}
-      actions={<Button variant="primary" size="sm">Get started</Button>}
+      actions={
+        <Button variant="primary" size="sm">
+          Get started
+        </Button>
+      }
       variant="elevated"
     />
   ),

@@ -1,6 +1,9 @@
 import type { InputHTMLAttributes } from 'react'
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   label?: string
   hint?: string
   error?: string

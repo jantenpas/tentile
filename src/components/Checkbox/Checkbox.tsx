@@ -3,7 +3,21 @@ import styles from './Checkbox.module.css'
 import type { CheckboxProps } from './Checkbox.types'
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, hint, error, checked, indeterminate = false, onChange, disabled, className, id, ...props }, ref) => {
+  (
+    {
+      label,
+      hint,
+      error,
+      checked,
+      indeterminate = false,
+      onChange,
+      disabled,
+      className,
+      id,
+      ...props
+    },
+    ref
+  ) => {
     const generatedId = useId()
     const inputId = id ?? generatedId
     const hintId = `${inputId}-hint`
@@ -16,7 +30,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }, [indeterminate, resolvedRef])
 
     return (
-      <div className={[styles.wrapper, disabled ? styles.disabled : '', className ?? ''].filter(Boolean).join(' ')}>
+      <div
+        className={[styles.wrapper, disabled ? styles.disabled : '', className ?? '']
+          .filter(Boolean)
+          .join(' ')}
+      >
         <label htmlFor={inputId} className={styles.label}>
           <input
             {...props}
@@ -37,7 +55,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               </svg>
             ) : (
               <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M1 4L3.5 6.5L9 1"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             )}
           </span>
@@ -45,10 +69,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         </label>
 
         {error && (
-          <span id={errorId} className={styles.errorMessage} role="alert">{error}</span>
+          <span id={errorId} className={styles.errorMessage} role="alert">
+            {error}
+          </span>
         )}
         {hint && !error && (
-          <span id={hintId} className={styles.hint}>{hint}</span>
+          <span id={hintId} className={styles.hint}>
+            {hint}
+          </span>
         )}
       </div>
     )

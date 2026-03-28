@@ -3,17 +3,7 @@ import styles from './Badge.module.css'
 import type { BadgeProps } from './Badge.types'
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  (
-    {
-      variant = 'default',
-      size = 'md',
-      dot = false,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ variant = 'default', size = 'md', dot = false, className, children, ...props }, ref) => {
     const classes = [
       styles.badge,
       styles[variant],

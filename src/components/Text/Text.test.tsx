@@ -39,12 +39,20 @@ describe('Text', () => {
   })
 
   it('does not set title when truncate is true but children is not a string', () => {
-    render(<Text truncate><span>Hello</span></Text>)
+    render(
+      <Text truncate>
+        <span>Hello</span>
+      </Text>
+    )
     expect(screen.getByText('Hello').closest('p')).not.toHaveAttribute('title')
   })
 
   it('does not override an existing title prop when truncate is true', () => {
-    render(<Text truncate title="Custom title">Hello world</Text>)
+    render(
+      <Text truncate title="Custom title">
+        Hello world
+      </Text>
+    )
     expect(screen.getByText('Hello world')).toHaveAttribute('title', 'Custom title')
   })
 })

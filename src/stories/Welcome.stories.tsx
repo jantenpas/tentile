@@ -72,15 +72,20 @@ function WelcomePage() {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.getAttribute('data-theme') === 'dark')
     })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    })
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div style={{
-      ...styles.page,
-      backgroundColor: isDark ? '#141412' : 'var(--color-neutral-50)',
-    }}>
+    <div
+      style={{
+        ...styles.page,
+        backgroundColor: isDark ? '#141412' : 'var(--color-neutral-50)',
+      }}
+    >
       <div style={styles.inner}>
         <img
           src={isDark ? '/tentile-logo-dark.svg' : '/tentile-logo-light.svg'}
@@ -88,10 +93,12 @@ function WelcomePage() {
           style={styles.logo}
         />
 
-        <p style={{
-          ...styles.tagline,
-          color: isDark ? 'var(--color-neutral-400)' : 'var(--color-neutral-600)',
-        }}>
+        <p
+          style={{
+            ...styles.tagline,
+            color: isDark ? 'var(--color-neutral-400)' : 'var(--color-neutral-600)',
+          }}
+        >
           This page is a work in progress — check back soon.
           <br />
           In the meantime, browse the components using the sidebar.
@@ -104,25 +111,36 @@ function WelcomePage() {
           <Badge variant="default">CSS Modules</Badge>
         </div>
 
-        <div style={{
-          ...styles.install,
-          backgroundColor: isDark ? 'var(--color-neutral-800)' : 'var(--color-neutral-100)',
-          border: `1px solid ${isDark ? 'var(--color-neutral-700)' : 'var(--color-neutral-200)'}`,
-          color: isDark ? 'var(--color-neutral-200)' : 'var(--color-neutral-800)',
-        }}>
+        <div
+          style={{
+            ...styles.install,
+            backgroundColor: isDark ? 'var(--color-neutral-800)' : 'var(--color-neutral-100)',
+            border: `1px solid ${isDark ? 'var(--color-neutral-700)' : 'var(--color-neutral-200)'}`,
+            color: isDark ? 'var(--color-neutral-200)' : 'var(--color-neutral-800)',
+          }}
+        >
           npm install tentile
         </div>
 
         <Stack direction="column" gap="sm" align="center">
-          <Link href="https://www.npmjs.com/package/tentile" external>View on npm</Link>
-          <Link href="https://github.com/jantenpas/tentile" external>View on GitHub</Link>
+          <Link href="https://www.npmjs.com/package/tentile" external>
+            View on npm
+          </Link>
+          <Link href="https://github.com/jantenpas/tentile" external>
+            View on GitHub
+          </Link>
         </Stack>
 
-        <p style={{
-          ...styles.footer,
-          color: isDark ? 'var(--color-neutral-600)' : 'var(--color-neutral-400)',
-        }}>
-          Built by <Link href="https://github.com/jantenpas" external>Jan tenPas</Link>
+        <p
+          style={{
+            ...styles.footer,
+            color: isDark ? 'var(--color-neutral-600)' : 'var(--color-neutral-400)',
+          }}
+        >
+          Built by{' '}
+          <Link href="https://github.com/jantenpas" external>
+            Jan tenPas
+          </Link>
         </p>
       </div>
     </div>

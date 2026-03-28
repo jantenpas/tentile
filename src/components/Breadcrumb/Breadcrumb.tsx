@@ -6,7 +6,13 @@ const SEPARATORS: Record<BreadcrumbSeparator, ReactNode> = {
   slash: <span aria-hidden="true">/</span>,
   chevron: (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-      <path d="M4 2L8 6L4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 2L8 6L4 10"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   dot: <span aria-hidden="true">·</span>,
@@ -17,16 +23,17 @@ export function Breadcrumb({ items, separator = 'chevron', className }: Breadcru
     typeof separator === 'string' ? SEPARATORS[separator as BreadcrumbSeparator] : separator
 
   return (
-    <nav aria-label="Breadcrumb" className={[styles.nav, className ?? ''].filter(Boolean).join(' ')}>
+    <nav
+      aria-label="Breadcrumb"
+      className={[styles.nav, className ?? ''].filter(Boolean).join(' ')}
+    >
       <ol className={styles.list}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1
 
           return (
             <li key={index} className={styles.item}>
-              {index > 0 && (
-                <span className={styles.separator}>{separatorNode}</span>
-              )}
+              {index > 0 && <span className={styles.separator}>{separatorNode}</span>}
               {isLast || !item.href ? (
                 <span
                   className={[styles.crumb, isLast ? styles.current : styles.link].join(' ')}

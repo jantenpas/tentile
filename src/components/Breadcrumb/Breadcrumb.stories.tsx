@@ -45,10 +45,7 @@ export const Dot: Story = {
 
 export const TwoItems: Story = {
   args: {
-    items: [
-      { label: 'Components', href: '/components' },
-      { label: 'Breadcrumb' },
-    ],
+    items: [{ label: 'Components', href: '/components' }, { label: 'Breadcrumb' }],
   },
 }
 
@@ -60,11 +57,7 @@ export const SingleItem: Story = {
 
 export const NoHrefs: Story = {
   args: {
-    items: [
-      { label: 'Home' },
-      { label: 'Components' },
-      { label: 'Breadcrumb' },
-    ],
+    items: [{ label: 'Home' }, { label: 'Components' }, { label: 'Breadcrumb' }],
   },
 }
 

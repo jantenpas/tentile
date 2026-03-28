@@ -39,9 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       .filter(Boolean)
       .join(' ')
 
-    const inputClasses = [styles.input, className ?? '']
-      .filter(Boolean)
-      .join(' ')
+    const inputClasses = [styles.input, className ?? ''].filter(Boolean).join(' ')
 
     return (
       <div className={wrapperClasses}>
@@ -69,9 +67,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             required={required}
             aria-required={required}
             aria-invalid={resolvedStatus === 'error'}
-            aria-describedby={
-              error ? errorId : hint ? hintId : undefined
-            }
+            aria-describedby={error ? errorId : hint ? hintId : undefined}
             {...props}
           />
 

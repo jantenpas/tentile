@@ -99,7 +99,9 @@ export function EditableText({
           <Stack direction="column" gap={3}>
             <textarea
               ref={textareaRef}
-              className={[styles.textarea, mode === 'error' ? styles.textareaError : ''].filter(Boolean).join(' ')}
+              className={[styles.textarea, mode === 'error' ? styles.textareaError : '']
+                .filter(Boolean)
+                .join(' ')}
               value={draft}
               rows={rows}
               onChange={(e) => setDraft(e.target.value)}
@@ -109,12 +111,7 @@ export function EditableText({
             />
 
             {mode === 'error' && error && (
-              <Text
-                as="span"
-                size="sm"
-                className={styles.errorMessage}
-                id="editable-text-error"
-              >
+              <Text as="span" size="sm" className={styles.errorMessage} id="editable-text-error">
                 {error}
               </Text>
             )}
@@ -129,12 +126,7 @@ export function EditableText({
               >
                 Save
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleCancel}
-                disabled={mode === 'saving'}
-              >
+              <Button variant="ghost" size="sm" onClick={handleCancel} disabled={mode === 'saving'}>
                 Cancel
               </Button>
             </Stack>

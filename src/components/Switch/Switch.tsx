@@ -2,13 +2,27 @@ import { useId } from 'react'
 import styles from './Switch.module.css'
 import type { SwitchProps } from './Switch.types'
 
-export function Switch({ label, hint, checked, onChange, disabled, size = 'md', className, id, ...props }: SwitchProps) {
+export function Switch({
+  label,
+  hint,
+  checked,
+  onChange,
+  disabled,
+  size = 'md',
+  className,
+  id,
+  ...props
+}: SwitchProps) {
   const generatedId = useId()
   const inputId = id ?? generatedId
   const hintId = `${inputId}-hint`
 
   return (
-    <div className={[styles.wrapper, disabled ? styles.disabled : '', className ?? ''].filter(Boolean).join(' ')}>
+    <div
+      className={[styles.wrapper, disabled ? styles.disabled : '', className ?? '']
+        .filter(Boolean)
+        .join(' ')}
+    >
       <label htmlFor={inputId} className={styles.label}>
         <input
           {...props}
@@ -26,7 +40,11 @@ export function Switch({ label, hint, checked, onChange, disabled, size = 'md', 
         </span>
         {label && <span className={styles.labelText}>{label}</span>}
       </label>
-      {hint && <span id={hintId} className={styles.hint}>{hint}</span>}
+      {hint && (
+        <span id={hintId} className={styles.hint}>
+          {hint}
+        </span>
+      )}
     </div>
   )
 }

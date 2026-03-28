@@ -42,11 +42,21 @@ export const Variants: Story = {
 export const WithDot: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
-      <Badge variant="default" dot>Inactive</Badge>
-      <Badge variant="success" dot>Live</Badge>
-      <Badge variant="warning" dot>Degraded</Badge>
-      <Badge variant="error" dot>Offline</Badge>
-      <Badge variant="info" dot>Syncing</Badge>
+      <Badge variant="default" dot>
+        Inactive
+      </Badge>
+      <Badge variant="success" dot>
+        Live
+      </Badge>
+      <Badge variant="warning" dot>
+        Degraded
+      </Badge>
+      <Badge variant="error" dot>
+        Offline
+      </Badge>
+      <Badge variant="info" dot>
+        Syncing
+      </Badge>
     </div>
   ),
 }
@@ -54,8 +64,12 @@ export const WithDot: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-      <Badge size="sm" variant="brand">Small</Badge>
-      <Badge size="md" variant="brand">Medium</Badge>
+      <Badge size="sm" variant="brand">
+        Small
+      </Badge>
+      <Badge size="md" variant="brand">
+        Medium
+      </Badge>
     </div>
   ),
 }
@@ -65,11 +79,14 @@ export const InContext: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
       {[
         { name: 'Authentication service', status: 'success', label: 'Operational' },
-        { name: 'Payment gateway',        status: 'warning', label: 'Degraded'    },
-        { name: 'Email delivery',         status: 'error',   label: 'Outage'      },
-        { name: 'CDN',                    status: 'success', label: 'Operational' },
+        { name: 'Payment gateway', status: 'warning', label: 'Degraded' },
+        { name: 'Email delivery', status: 'error', label: 'Outage' },
+        { name: 'CDN', status: 'success', label: 'Operational' },
       ].map((item) => (
-        <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div
+          key={item.name}
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+        >
           <span style={{ fontFamily: 'var(--font-family-sans)', fontSize: 'var(--font-size-sm)' }}>
             {item.name}
           </span>

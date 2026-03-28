@@ -19,5 +19,11 @@ export const Neutral: Story = { args: { color: 'neutral' } }
 
 export const OnDark: Story = {
   args: { color: 'white' },
-  decorators: [(Story) => <div style={{ background: '#1a1a2e', padding: '24px', borderRadius: '8px' }}><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div style={{ background: '#1a1a2e', padding: '24px', borderRadius: '8px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }

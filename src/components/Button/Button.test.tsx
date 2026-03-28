@@ -35,7 +35,11 @@ describe('Button', () => {
   it('does not call onClick when disabled', async () => {
     const user = userEvent.setup({ pointerEventsCheck: 0 })
     const onClick = vi.fn()
-    render(<Button disabled onClick={onClick}>Button</Button>)
+    render(
+      <Button disabled onClick={onClick}>
+        Button
+      </Button>
+    )
     await user.click(screen.getByRole('button'))
     expect(onClick).not.toHaveBeenCalled()
   })

@@ -24,12 +24,16 @@ export function Modal({
     if (!open) return
     const previous = document.activeElement as HTMLElement
     dialogRef.current?.focus()
-    return () => { previous?.focus() }
+    return () => {
+      previous?.focus()
+    }
   }, [open])
 
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [open, onClose])
@@ -38,10 +42,12 @@ export function Modal({
 
   return createPortal(
     <div
+      role="presentation"
       className={styles.backdrop}
       onClick={closeOnBackdrop ? onClose : undefined}
       data-backdrop="true"
     >
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         ref={dialogRef}
         role="dialog"
@@ -50,15 +56,17 @@ export function Modal({
         tabIndex={-1}
         className={[styles.dialog, styles[size]].join(' ')}
         onClick={(e) => e.stopPropagation()}
+        onKeyDown={(e) => {
+          if (e.key !== 'Escape') e.stopPropagation()
+        }}
       >
         <div className={styles.header}>
-          {title && <h2 id="modal-title" className={styles.title}>{title}</h2>}
-          <button
-            type="button"
-            className={styles.closeButton}
-            onClick={onClose}
-            aria-label="Close"
-          >
+          {title && (
+            <h2 id="modal-title" className={styles.title}>
+              {title}
+            </h2>
+          )}
+          <button type="button" className={styles.closeButton} onClick={onClose} aria-label="Close">
             <CloseIcon />
           </button>
         </div>

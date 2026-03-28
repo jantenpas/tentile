@@ -51,10 +51,18 @@ export const External: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Link href="#" variant="default">Default link</Link>
-      <Link href="#" variant="subtle">Subtle link</Link>
-      <Link href="#" variant="unstyled">Unstyled link</Link>
-      <Link href="https://example.com" external>External link</Link>
+      <Link href="#" variant="default">
+        Default link
+      </Link>
+      <Link href="#" variant="subtle">
+        Subtle link
+      </Link>
+      <Link href="#" variant="unstyled">
+        Unstyled link
+      </Link>
+      <Link href="https://example.com" external>
+        External link
+      </Link>
     </div>
   ),
 }

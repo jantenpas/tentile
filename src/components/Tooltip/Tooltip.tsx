@@ -7,7 +7,9 @@ export function Tooltip({ content, children, placement = 'top', disabled = false
   return (
     <span className={[styles.wrapper, styles[placement]].join(' ')}>
       {children}
-      <span className={styles.tooltip} role="tooltip">{content}</span>
+      <span className={styles.tooltip} role="tooltip">
+        {content}
+      </span>
     </span>
   )
 }

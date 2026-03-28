@@ -53,9 +53,21 @@ export const WithReactNodes: Story = {
         { key: 'version', label: 'Version' },
       ]}
       data={[
-        { component: 'Button', status: <span style={{ color: '#16a34a' }}>Stable</span>, version: '0.2.0' },
-        { component: 'Select', status: <span style={{ color: '#16a34a' }}>Stable</span>, version: '0.3.0' },
-        { component: 'Tabs', status: <span style={{ color: '#ca8a04' }}>Beta</span>, version: '0.3.0' },
+        {
+          component: 'Button',
+          status: <span style={{ color: '#16a34a' }}>Stable</span>,
+          version: '0.2.0',
+        },
+        {
+          component: 'Select',
+          status: <span style={{ color: '#16a34a' }}>Stable</span>,
+          version: '0.3.0',
+        },
+        {
+          component: 'Tabs',
+          status: <span style={{ color: '#ca8a04' }}>Beta</span>,
+          version: '0.3.0',
+        },
       ]}
       variant="striped"
     />

@@ -34,7 +34,11 @@ export const Checked: Story = {
 }
 
 export const WithHint: Story = {
-  args: { label: 'Marketing emails', hint: 'Receive product updates and announcements.', checked: false },
+  args: {
+    label: 'Marketing emails',
+    hint: 'Receive product updates and announcements.',
+    checked: false,
+  },
   render: (args) => {
     const [checked, setChecked] = useState(false)
     return <Switch {...args} checked={checked} onChange={setChecked} />

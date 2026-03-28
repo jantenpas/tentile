@@ -40,7 +40,14 @@ describe('Checkbox', () => {
   })
 
   it('renders a hint when provided', () => {
-    render(<Checkbox label="Subscribe" hint="Max one email per week." checked={false} onChange={() => {}} />)
+    render(
+      <Checkbox
+        label="Subscribe"
+        hint="Max one email per week."
+        checked={false}
+        onChange={() => {}}
+      />
+    )
     expect(screen.getByText('Max one email per week.')).toBeInTheDocument()
   })
 
@@ -50,11 +57,19 @@ describe('Checkbox', () => {
   })
 
   it('does not render hint when error is also present', () => {
-    render(<Checkbox label="Accept" hint="Please check." error="Required." checked={false} onChange={() => {}} />)
+    render(
+      <Checkbox
+        label="Accept"
+        hint="Please check."
+        error="Required."
+        checked={false}
+        onChange={() => {}}
+      />
+    )
     expect(screen.queryByText('Please check.')).not.toBeInTheDocument()
   })
 
-it('sets indeterminate on the input element', () => {
+  it('sets indeterminate on the input element', () => {
     render(<Checkbox label="Select all" checked={false} indeterminate onChange={() => {}} />)
     expect((screen.getByRole('checkbox') as HTMLInputElement).indeterminate).toBe(true)
   })

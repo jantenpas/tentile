@@ -42,15 +42,21 @@ export const Variants: Story = {
     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
       <Card variant="elevated" style={{ width: '200px' }}>
         <Heading level={5}>Elevated</Heading>
-        <Text size="sm" color="muted">Default shadow + border</Text>
+        <Text size="sm" color="muted">
+          Default shadow + border
+        </Text>
       </Card>
       <Card variant="outlined" style={{ width: '200px' }}>
         <Heading level={5}>Outlined</Heading>
-        <Text size="sm" color="muted">Border only, no shadow</Text>
+        <Text size="sm" color="muted">
+          Border only, no shadow
+        </Text>
       </Card>
       <Card variant="filled" style={{ width: '200px' }}>
         <Heading level={5}>Filled</Heading>
-        <Text size="sm" color="muted">Subtle background fill</Text>
+        <Text size="sm" color="muted">
+          Subtle background fill
+        </Text>
       </Card>
     </div>
   ),
@@ -62,7 +68,9 @@ export const Interactive: Story = {
       {['Project Alpha', 'Project Beta', 'Project Gamma'].map((name) => (
         <Card key={name} interactive style={{ width: '200px' }}>
           <Heading level={5}>{name}</Heading>
-          <Text size="sm" color="muted">Click to open project</Text>
+          <Text size="sm" color="muted">
+            Click to open project
+          </Text>
         </Card>
       ))}
     </div>
@@ -78,12 +86,14 @@ export const Composition: Story = {
           <Badge variant="success">Stable</Badge>
         </div>
         <Text color="muted">
-          A composable React component library built for production.
-          Tiles that snap together to build interfaces.
+          A composable React component library built for production. Tiles that snap together to
+          build interfaces.
         </Text>
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <Button size="sm">Get started</Button>
-          <Button size="sm" variant="ghost">View docs</Button>
+          <Button size="sm" variant="ghost">
+            View docs
+          </Button>
         </div>
       </div>
     </Card>

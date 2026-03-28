@@ -78,7 +78,8 @@ export const Truncate: Story = {
   render: () => (
     <div style={{ maxWidth: '300px' }}>
       <Text truncate>
-        This is a very long string of text that will be truncated with an ellipsis when it overflows its container
+        This is a very long string of text that will be truncated with an ellipsis when it overflows
+        its container
       </Text>
     </div>
   ),
@@ -89,7 +90,9 @@ export const Mono: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
       <Text>Regular Plus Jakarta Sans body text</Text>
       <Text mono>JetBrains Mono — npm install tentile</Text>
-      <Text mono size="sm" color="muted">const button = &lt;Button variant="primary"&gt;Click&lt;/Button&gt;</Text>
+      <Text mono size="sm" color="muted">
+        const button = &lt;Button variant="primary"&gt;Click&lt;/Button&gt;
+      </Text>
     </div>
   ),
 }
@@ -97,12 +100,16 @@ export const Mono: Story = {
 export const Composition: Story = {
   render: () => (
     <div style={{ maxWidth: '560px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-      <Text size="lg" weight="semibold">Getting started with Tentile</Text>
-      <Text color="muted">
-        Tentile is a composable React component library built for production.
-        Install it once, use it everywhere.
+      <Text size="lg" weight="semibold">
+        Getting started with Tentile
       </Text>
-      <Text size="sm" color="subtle">Last updated February 2026</Text>
+      <Text color="muted">
+        Tentile is a composable React component library built for production. Install it once, use
+        it everywhere.
+      </Text>
+      <Text size="sm" color="subtle">
+        Last updated February 2026
+      </Text>
     </div>
   ),
 }

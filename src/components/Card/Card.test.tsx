@@ -25,7 +25,11 @@ describe('Card', () => {
   it('calls onClick when interactive card is clicked', async () => {
     const user = userEvent.setup()
     const onClick = vi.fn()
-    render(<Card interactive onClick={onClick}>Content</Card>)
+    render(
+      <Card interactive onClick={onClick}>
+        Content
+      </Card>
+    )
     await user.click(screen.getByRole('button'))
     expect(onClick).toHaveBeenCalledOnce()
   })
@@ -33,7 +37,11 @@ describe('Card', () => {
   it('calls onActivate on Enter key when interactive', async () => {
     const user = userEvent.setup()
     const onActivate = vi.fn()
-    render(<Card interactive onActivate={onActivate}>Content</Card>)
+    render(
+      <Card interactive onActivate={onActivate}>
+        Content
+      </Card>
+    )
     screen.getByRole('button').focus()
     await user.keyboard('{Enter}')
     expect(onActivate).toHaveBeenCalledOnce()
@@ -42,7 +50,11 @@ describe('Card', () => {
   it('calls onClick on Enter key when interactive and no onActivate', async () => {
     const user = userEvent.setup()
     const onClick = vi.fn()
-    render(<Card interactive onClick={onClick}>Content</Card>)
+    render(
+      <Card interactive onClick={onClick}>
+        Content
+      </Card>
+    )
     screen.getByRole('button').focus()
     await user.keyboard('{Enter}')
     expect(onClick).toHaveBeenCalled()
@@ -51,7 +63,11 @@ describe('Card', () => {
   it('calls onActivate on Space key when interactive', async () => {
     const user = userEvent.setup()
     const onActivate = vi.fn()
-    render(<Card interactive onActivate={onActivate}>Content</Card>)
+    render(
+      <Card interactive onActivate={onActivate}>
+        Content
+      </Card>
+    )
     screen.getByRole('button').focus()
     await user.keyboard(' ')
     expect(onActivate).toHaveBeenCalledOnce()
@@ -60,7 +76,11 @@ describe('Card', () => {
   it('calls onKeyDown for non-activation keys when interactive', async () => {
     const user = userEvent.setup()
     const onKeyDown = vi.fn()
-    render(<Card interactive onKeyDown={onKeyDown}>Content</Card>)
+    render(
+      <Card interactive onKeyDown={onKeyDown}>
+        Content
+      </Card>
+    )
     screen.getByRole('button').focus()
     await user.keyboard('{Tab}')
     expect(onKeyDown).toHaveBeenCalled()

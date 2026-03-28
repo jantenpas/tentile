@@ -45,9 +45,18 @@
   transition: background-color var(--transition-fast);
 }
 
-.sm { width: 2rem;   height: 1.125rem; }
-.md { width: 2.5rem; height: 1.375rem; }
-.lg { width: 3rem;   height: 1.625rem; }
+.sm {
+  width: 2rem;
+  height: 1.125rem;
+}
+.md {
+  width: 2.5rem;
+  height: 1.375rem;
+}
+.lg {
+  width: 3rem;
+  height: 1.625rem;
+}
 
 /* Thumb */
 .thumb {
@@ -58,16 +67,36 @@
   transition: transform var(--transition-fast);
 }
 
-.sm .thumb { width: 0.75rem;  height: 0.75rem;  left: 3px; }
-.md .thumb { width: 1rem;     height: 1rem;     left: 3px; }
-.lg .thumb { width: 1.25rem;  height: 1.25rem;  left: 3px; }
+.sm .thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+  left: 3px;
+}
+.md .thumb {
+  width: 1rem;
+  height: 1rem;
+  left: 3px;
+}
+.lg .thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  left: 3px;
+}
 
 /* Checked state — move thumb right */
-.input:checked ~ .track { background-color: var(--color-brand-700); }
+.input:checked ~ .track {
+  background-color: var(--color-brand-700);
+}
 
-.input:checked ~ .sm .thumb  { transform: translateX(0.875rem); }
-.input:checked ~ .md .thumb  { transform: translateX(1.125rem); }
-.input:checked ~ .lg .thumb  { transform: translateX(1.375rem); }
+.input:checked ~ .sm .thumb {
+  transform: translateX(0.875rem);
+}
+.input:checked ~ .md .thumb {
+  transform: translateX(1.125rem);
+}
+.input:checked ~ .lg .thumb {
+  transform: translateX(1.375rem);
+}
 
 /* Focus */
 .input:focus-visible ~ .track {

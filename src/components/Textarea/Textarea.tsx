@@ -38,9 +38,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       .filter(Boolean)
       .join(' ')
 
-    const textareaClasses = [styles.textarea, className ?? '']
-      .filter(Boolean)
-      .join(' ')
+    const textareaClasses = [styles.textarea, className ?? ''].filter(Boolean).join(' ')
 
     const handleInput = (e: FormEvent<HTMLTextAreaElement>) => {
       if (autoResize) {

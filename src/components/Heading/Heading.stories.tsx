@@ -47,9 +47,15 @@ export const AllLevels: Story = {
 export const Colors: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Heading level={2} color="default">Default — warm near-black</Heading>
-      <Heading level={2} color="muted">Muted — secondary content</Heading>
-      <Heading level={2} color="brand">Brand — teal accent</Heading>
+      <Heading level={2} color="default">
+        Default — warm near-black
+      </Heading>
+      <Heading level={2} color="muted">
+        Muted — secondary content
+      </Heading>
+      <Heading level={2} color="brand">
+        Brand — teal accent
+      </Heading>
     </div>
   ),
 }
@@ -57,8 +63,12 @@ export const Colors: Story = {
 export const SizeOverride: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Heading level={1} size="sm">H1 tag, small size</Heading>
-      <Heading level={6} size="xl">H6 tag, xl size</Heading>
+      <Heading level={1} size="sm">
+        H1 tag, small size
+      </Heading>
+      <Heading level={6} size="xl">
+        H6 tag, xl size
+      </Heading>
     </div>
   ),
 }

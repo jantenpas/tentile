@@ -83,7 +83,11 @@ describe('EditableText', () => {
   it('disables textarea and buttons while saving', async () => {
     const user = userEvent.setup()
     let resolve: () => void
-    const onSave = vi.fn().mockReturnValue(new Promise<void>((res) => { resolve = res }))
+    const onSave = vi.fn().mockReturnValue(
+      new Promise<void>((res) => {
+        resolve = res
+      })
+    )
     render(<EditableText value="Hello" onSave={onSave} />)
     await user.click(screen.getByRole('button', { name: 'Edit' }))
     await user.click(screen.getByRole('button', { name: 'Save' }))

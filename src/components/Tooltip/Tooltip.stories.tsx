@@ -30,16 +30,24 @@ export const Placements: Story = {
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', padding: '3rem' }}>
       <Tooltip content="Top tooltip" placement="top">
-        <Button variant="secondary" size="sm">Top</Button>
+        <Button variant="secondary" size="sm">
+          Top
+        </Button>
       </Tooltip>
       <Tooltip content="Bottom tooltip" placement="bottom">
-        <Button variant="secondary" size="sm">Bottom</Button>
+        <Button variant="secondary" size="sm">
+          Bottom
+        </Button>
       </Tooltip>
       <Tooltip content="Left tooltip" placement="left">
-        <Button variant="secondary" size="sm">Left</Button>
+        <Button variant="secondary" size="sm">
+          Left
+        </Button>
       </Tooltip>
       <Tooltip content="Right tooltip" placement="right">
-        <Button variant="secondary" size="sm">Right</Button>
+        <Button variant="secondary" size="sm">
+          Right
+        </Button>
       </Tooltip>
     </div>
   ),
@@ -50,7 +58,13 @@ export const OnIcon: Story = {
     <Tooltip content="More information about this field">
       <button
         type="button"
-        style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-neutral-500)', padding: '4px' }}
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          color: 'var(--color-neutral-500)',
+          padding: '4px',
+        }}
         aria-label="Info"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
