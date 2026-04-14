@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Badge } from '@lib/components/Badge/Badge'
 import { Card } from '@lib/components/Card/Card'
 import { Heading } from '@lib/components/Heading/Heading'
@@ -127,12 +128,12 @@ export default function HomePage() {
           </div>
 
           <div className={styles.ctaRow}>
-            <a href="#/components" className={styles.ctaPrimary}>
+            <Link to="/components" className={styles.ctaPrimary}>
               Browse components
-            </a>
-            <a href="#/style-guide" className={styles.ctaSecondary}>
+            </Link>
+            <Link to="/style-guide" className={styles.ctaSecondary}>
               Explore style guide
-            </a>
+            </Link>
             <a
               href="https://github.com/jantenpas/tentile"
               target="_blank"
@@ -259,18 +260,18 @@ export default function HomePage() {
               How to explore the system
             </Heading>
             <div className={styles.exploreList}>
-              <a href="#/components" className={styles.exploreLink}>
+              <Link to="/components" className={styles.exploreLink}>
                 <span className={styles.exploreLabel}>Component catalog</span>
                 <span className={styles.exploreMeta}>
                   See the API surface, examples, and props for each primitive.
                 </span>
-              </a>
-              <a href="#/style-guide" className={styles.exploreLink}>
+              </Link>
+              <Link to="/style-guide" className={styles.exploreLink}>
                 <span className={styles.exploreLabel}>Style guide</span>
                 <span className={styles.exploreMeta}>
                   Review the token foundations behind the UI language.
                 </span>
-              </a>
+              </Link>
               <a
                 href="https://github.com/jantenpas/tentile"
                 target="_blank"
