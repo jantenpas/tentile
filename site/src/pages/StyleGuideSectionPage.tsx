@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { StyleGuideSectionContent, styleGuideSections } from '../components/StyleGuideShowcase'
 import type { StyleGuideSectionSlug } from '../components/StyleGuideShowcase'
 import styles from './StyleGuidePage.module.css'
@@ -13,7 +13,7 @@ export default function StyleGuideSectionPage() {
         <p>
           Style guide section <code>{slug}</code> not found.
         </p>
-        <a href="/style-guide">Back to style guide</a>
+        <Link to="/style-guide">Back to style guide</Link>
       </div>
     )
   }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Badge } from '@lib/components/Badge/Badge'
 import { Heading } from '@lib/components/Heading/Heading'
 import { Text } from '@lib/components/Text/Text'
@@ -20,7 +21,7 @@ export default function ComponentsPage() {
 
       <div className={styles.grid}>
         {componentList.map((component) => (
-          <a key={component.slug} href={`#/components/${component.slug}`} className={styles.card}>
+          <Link key={component.slug} to={`/components/${component.slug}`} className={styles.card}>
             <Heading level={2} size="xs" className={styles.cardName}>
               {component.name}
             </Heading>
@@ -30,7 +31,7 @@ export default function ComponentsPage() {
             <Text size="xs" weight="semibold" className={styles.cardMeta}>
               View component
             </Text>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

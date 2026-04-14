@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import styles from './ComponentPage.module.css'
 import { componentList } from '../data/components'
 import PropsTable from '../components/PropsTable'
@@ -14,7 +14,7 @@ export default function ComponentPage() {
         <p>
           Component <code>{slug}</code> not found.
         </p>
-        <a href="/">Back to overview</a>
+        <Link to="/">Back to overview</Link>
       </div>
     )
   }
