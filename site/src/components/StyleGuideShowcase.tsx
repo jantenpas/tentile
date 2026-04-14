@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Badge } from '@lib/components/Badge/Badge'
 import { Card } from '@lib/components/Card/Card'
 import { Heading } from '@lib/components/Heading/Heading'
@@ -469,9 +470,9 @@ export function StyleGuideShowcase() {
 
       <div className={styles.sectionIndex}>
         {styleGuideSections.map((section) => (
-          <a
+          <Link
             key={section.slug}
-            href={`#/style-guide/${section.slug}`}
+            to={`/style-guide/${section.slug}`}
             className={styles.sectionCard}
           >
             <Card variant="outlined" padding="md">
@@ -487,7 +488,7 @@ export function StyleGuideShowcase() {
                 </Text>
               </div>
             </Card>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
