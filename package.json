@@ -1,6 +1,6 @@
 {
   "name": "tentile",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "A React component library by Jan tenPas — tiles that snap together to build interfaces",
   "author": "Jan tenPas",
   "license": "MIT",
@@ -24,6 +24,8 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "site:dev": "vite --config site/vite.config.ts",
+    "site:build": "vite build --config site/vite.config.ts",
     "build": "tsc -p tsconfig.build.json && vite build",
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run build",
@@ -35,7 +37,7 @@
     "lint:fix": "eslint src --fix",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "clean": "rm -rf dist coverage storybook-static",
+    "clean": "rm -rf dist coverage storybook-static site-dist",
     "cleaner": "npm run clean && rm -rf node_modules",
     "prepare": "husky"
   },
@@ -75,6 +77,7 @@
     "prettier": "^3.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.14.1",
     "storybook": "^8.6.17",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.57.2",

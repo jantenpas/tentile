@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Modal } from './Modal'
 
@@ -69,10 +69,18 @@ describe('Modal', () => {
   })
 
   it('does not call onClose when a non-Escape key is pressed', async () => {
-    const user = userEvent.setup()
     const onClose = vi.fn()
     render(<Modal open={true} onClose={onClose} title="Test" />)
-    await user.keyboard('{Enter}')
+    fireEvent.keyDown(document, { key: 'Enter' })
+    expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('stops propagation for non-Escape keys pressed on the dialog', () => {
+    const onClose = vi.fn()
+    render(<Modal open={true} onClose={onClose} title="Test" />)
+
+    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Enter' })
+
     expect(onClose).not.toHaveBeenCalled()
   })
 
@@ -82,5 +90,30 @@ describe('Modal', () => {
     render(<Modal open={true} onClose={onClose} closeOnBackdrop={false} title="Test" />)
     await user.click(document.body.querySelector('[data-backdrop="true"]')!)
     expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('restores focus to the previously focused element when closed', async () => {
+    const user = userEvent.setup()
+    const onClose = vi.fn()
+
+    const { rerender } = render(
+      <>
+        <button type="button">Return focus</button>
+        <Modal open={true} onClose={onClose} title="Focus test" />
+      </>
+    )
+
+    const trigger = screen.getByRole('button', { name: 'Return focus' })
+    await user.click(trigger)
+    expect(trigger).toHaveFocus()
+
+    rerender(
+      <>
+        <button type="button">Return focus</button>
+        <Modal open={false} onClose={onClose} title="Focus test" />
+      </>
+    )
+
+    expect(screen.getByRole('button', { name: 'Return focus' })).toHaveFocus()
   })
 })

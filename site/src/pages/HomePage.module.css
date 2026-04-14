@@ -1,0 +1,340 @@
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-bottom: var(--space-16);
+}
+
+.hero {
+  display: block;
+  padding: var(--space-12) 0 var(--space-10);
+}
+
+.heroCopy {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 760px;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: 0.98;
+  color: var(--color-neutral-900);
+}
+
+.tagline {
+  margin: 0;
+  max-width: 700px;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-neutral-600);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.ctaPrimary,
+.ctaSecondary,
+.ctaTertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.ctaPrimary {
+  color: var(--color-neutral-0);
+  background: linear-gradient(135deg, var(--color-brand-700), var(--color-brand-500));
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-1px);
+}
+
+.ctaSecondary,
+.ctaTertiary {
+  color: var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-200);
+  background: var(--color-neutral-0);
+}
+
+.ctaSecondary:hover,
+.ctaTertiary:hover {
+  border-color: var(--color-brand-700);
+  color: var(--color-brand-700);
+}
+
+.installBlock {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 420px;
+}
+
+.installCommand,
+.inlineCode,
+.codeBlock {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  overflow-x: auto;
+}
+
+.installCommand {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-200);
+  color: var(--color-neutral-900);
+  font-size: var(--font-size-sm);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 720px;
+}
+
+.sectionText {
+  max-width: 680px;
+}
+
+.pillarGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.pillarCard,
+.stepCard,
+.engineeringCard {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.setupLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.stepList {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.stepCard {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-brand-50);
+  color: var(--color-brand-700);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.stepBody {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.inlineCode {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-800);
+  font-size: var(--font-size-xs);
+}
+
+.codeCard {
+  display: grid;
+  gap: var(--space-4);
+  background:
+    linear-gradient(180deg, rgb(15 118 110 / 0.06), transparent 48%), var(--color-neutral-100);
+}
+
+.codeHeader {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.codeBlock {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-neutral-900);
+  color: var(--color-neutral-0);
+  font-size: var(--font-size-xs);
+  line-height: 1.7;
+}
+
+.engineeringLayout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.signalList {
+  margin: 0;
+  padding-left: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.signalItem::marker {
+  color: var(--color-brand-700);
+}
+
+.exploreList {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.exploreLink {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: 1px solid var(--color-neutral-200);
+  background: var(--color-neutral-0);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.exploreLink:hover {
+  border-color: var(--color-brand-700);
+  transform: translateY(-1px);
+}
+
+.exploreLabel {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+}
+
+.exploreMeta {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-500);
+}
+
+.footer {
+  padding-top: var(--space-8);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-neutral-400);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--color-neutral-500);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--color-brand-700);
+}
+
+@media (max-width: 960px) {
+  .setupLayout,
+  .engineeringLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .pillarGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-bottom: var(--space-12);
+  }
+
+  .hero {
+    padding-top: var(--space-8);
+  }
+
+  .titleGroup {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .heading {
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+
+  .tagline {
+    font-size: var(--font-size-md);
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stepCard {
+    grid-template-columns: 1fr;
+  }
+}

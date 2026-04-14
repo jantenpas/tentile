@@ -93,3 +93,6 @@ export type { SwitchProps, SwitchSize } from './components/Switch'
 
 export { Tooltip } from './components/Tooltip'
 export type { TooltipProps, TooltipPlacement } from './components/Tooltip'
+
+export { Collapsible } from './components/Collapsible'
+export type { CollapsibleProps } from './components/Collapsible'

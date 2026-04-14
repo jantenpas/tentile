@@ -1,0 +1,42 @@
+.page {
+  width: 100%;
+}
+
+.pageHeader {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.name {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--space-3);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-neutral-500);
+  margin: 0;
+  line-height: var(--line-height-normal);
+  max-width: 760px;
+}
+
+.content {
+  width: 100%;
+}
+
+.notFound {
+  padding: var(--space-10);
+  color: var(--color-neutral-500);
+  font-family: var(--font-family-sans);
+}
+
+.notFound code {
+  font-family: var(--font-family-mono);
+}

@@ -5,6 +5,11 @@ import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@lib': resolve(__dirname, 'src'),
+    },
+  },
   plugins: [
     react(),
     dts({
@@ -30,7 +35,13 @@ export default defineConfig({
     css: true,
     coverage: {
       provider: 'v8',
-      exclude: ['**/*.module.css', '**/*.stories.tsx', '**/index.ts', 'src/test/**'],
+      exclude: [
+        '**/*.module.css',
+        '**/*.stories.tsx',
+        '**/index.ts',
+        'src/test/**',
+        'site/src/data/**',
+      ],
     },
   },
 })

@@ -1,0 +1,74 @@
+.page {
+  max-width: 920px;
+}
+
+.pageHeader {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: var(--space-3);
+}
+
+.name {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--space-3);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-neutral-500);
+  margin: 0;
+  line-height: var(--line-height-normal);
+  max-width: 640px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 160px;
+  padding: var(--space-5);
+  background: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-brand-700);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.cardName {
+  color: var(--color-neutral-900);
+}
+
+.cardDesc {
+  color: var(--color-neutral-500);
+}
+
+.cardMeta {
+  margin-top: auto;
+  color: var(--color-brand-700);
+}

@@ -73,4 +73,12 @@ describe('Checkbox', () => {
     render(<Checkbox label="Select all" checked={false} indeterminate onChange={() => {}} />)
     expect((screen.getByRole('checkbox') as HTMLInputElement).indeterminate).toBe(true)
   })
+
+  it('supports callback refs', () => {
+    const ref = vi.fn()
+
+    render(<Checkbox label="Callback ref" checked={false} onChange={() => {}} ref={ref} />)
+
+    expect(ref).toHaveBeenCalledWith(expect.any(HTMLInputElement))
+  })
 })

@@ -1,4 +1,4 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react'
+import { act, render, screen, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { EditableText } from './EditableText'
 
@@ -82,7 +82,7 @@ describe('EditableText', () => {
 
   it('disables textarea and buttons while saving', async () => {
     const user = userEvent.setup()
-    let resolve: () => void
+    let resolve: (() => void) | undefined
     const onSave = vi.fn().mockReturnValue(
       new Promise<void>((res) => {
         resolve = res
@@ -93,7 +93,9 @@ describe('EditableText', () => {
     await user.click(screen.getByRole('button', { name: 'Save' }))
     expect(screen.getByRole('textbox')).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeDisabled()
-    resolve!()
+    await act(async () => {
+      resolve?.()
+    })
   })
 
   it('uses default rows of 4', () => {
