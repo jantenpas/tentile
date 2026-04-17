@@ -7,17 +7,22 @@ import { styleGuideSections } from '../components/StyleGuideShowcase'
 import { useSidebar } from './SidebarContext'
 
 export default function Sidebar() {
-  const { collapsed, toggle } = useSidebar()
+  const { collapsed, toggle, collapse, isMobile } = useSidebar()
   const [componentsOpen, setComponentsOpen] = useState(true)
   const [styleGuideOpen, setStyleGuideOpen] = useState(true)
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `${styles.link} ${isActive ? styles.active : ''}`
+  const closeMobileSidebar = () => {
+    if (isMobile) collapse()
+  }
 
   return (
     <nav
+      id="site-sidebar"
       className={`${styles.sidebar} ${collapsed ? styles.sidebarCollapsed : ''}`}
       aria-label="Sidebar"
+      aria-hidden={collapsed}
     >
       <div className={styles.sidebarInner}>
         <div className={styles.sidebarTopBar}>
@@ -25,7 +30,7 @@ export default function Sidebar() {
             type="button"
             className={styles.sidebarCollapseButton}
             onClick={toggle}
-            aria-label="Collapse sidebar"
+            aria-label={isMobile ? 'Close sidebar' : 'Collapse sidebar'}
           >
             <svg
               width="14"
@@ -51,6 +56,7 @@ export default function Sidebar() {
             to="/"
             end
             className={({ isActive }) => `${styles.homeLink} ${isActive ? styles.active : ''}`}
+            onClick={closeMobileSidebar}
           >
             Getting Started
           </NavLink>
@@ -67,7 +73,7 @@ export default function Sidebar() {
           >
             <ul className={styles.list}>
               <li>
-                <NavLink to="/style-guide" end className={linkClass}>
+                <NavLink to="/style-guide" end className={linkClass} onClick={closeMobileSidebar}>
                   Overview
                 </NavLink>
               </li>
@@ -75,7 +81,11 @@ export default function Sidebar() {
             <ul className={styles.list}>
               {styleGuideSections.map((section) => (
                 <li key={section.slug}>
-                  <NavLink to={`/style-guide/${section.slug}`} className={linkClass}>
+                  <NavLink
+                    to={`/style-guide/${section.slug}`}
+                    className={linkClass}
+                    onClick={closeMobileSidebar}
+                  >
                     {section.name}
                   </NavLink>
                 </li>
@@ -94,7 +104,7 @@ export default function Sidebar() {
           >
             <ul className={styles.list}>
               <li>
-                <NavLink to="/components" end className={linkClass}>
+                <NavLink to="/components" end className={linkClass} onClick={closeMobileSidebar}>
                   Component Summary
                 </NavLink>
               </li>
@@ -102,7 +112,11 @@ export default function Sidebar() {
             <ul className={styles.list}>
               {componentList.map((c) => (
                 <li key={c.slug}>
-                  <NavLink to={`/components/${c.slug}`} className={linkClass}>
+                  <NavLink
+                    to={`/components/${c.slug}`}
+                    className={linkClass}
+                    onClick={closeMobileSidebar}
+                  >
                     {c.name}
                   </NavLink>
                 </li>

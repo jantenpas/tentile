@@ -4,14 +4,18 @@
   border-right: 1px solid var(--color-neutral-200);
   background: var(--color-neutral-0);
   overflow: hidden;
+  visibility: visible;
   transition:
     width var(--transition-normal),
-    border-color var(--transition-normal);
+    border-color var(--transition-normal),
+    visibility var(--transition-normal);
 }
 
 .sidebarCollapsed {
   width: 0;
   border-right-color: transparent;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .sidebarInner {
@@ -130,4 +134,55 @@
 
 .list + .list {
   margin-top: var(--space-1);
+}
+
+@media (max-width: 768px) {
+  .sidebar,
+  .sidebarCollapsed {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 40;
+    width: min(84vw, 320px);
+    max-width: calc(100vw - 48px);
+    height: 100dvh;
+    border-right: 1px solid var(--color-neutral-200);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform var(--transition-normal),
+      visibility var(--transition-normal),
+      border-color var(--transition-normal);
+  }
+
+  .sidebarCollapsed {
+    transform: translateX(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .sidebarInner {
+    padding: var(--space-4);
+    opacity: 1;
+  }
+
+  .sidebarCollapsed .sidebarInner {
+    opacity: 1;
+  }
+
+  .sidebarTopBar {
+    margin-bottom: var(--space-4);
+  }
+
+  .sidebarCollapseButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .homeLink,
+  .link,
+  .collapsible :global(button) {
+    min-height: 40px;
+  }
 }

@@ -15,6 +15,7 @@
   align-items: center;
   gap: var(--space-3);
   justify-self: start;
+  min-width: 0;
 }
 
 .logo {
@@ -26,6 +27,7 @@
 .logoImg {
   height: 28px;
   width: auto;
+  max-width: 132px;
 }
 
 .primaryNav,
@@ -42,6 +44,7 @@
 
 .utilityNav {
   justify-self: end;
+  min-width: 0;
 }
 
 .navLink {
@@ -50,6 +53,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-neutral-600);
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
@@ -128,5 +132,77 @@
   .primaryNav,
   .utilityNav {
     gap: var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'brand utility'
+      'primary primary';
+    height: auto;
+    min-height: 56px;
+    gap: var(--space-2) var(--space-3);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .brandGroup {
+    grid-area: brand;
+  }
+
+  .primaryNav {
+    grid-area: primary;
+    justify-self: stretch;
+    width: 100%;
+    gap: var(--space-1);
+    overflow-x: auto;
+    padding-top: var(--space-1);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .primaryNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .primaryNav .navLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+    min-height: 36px;
+    padding: 0 var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .primaryNav .navLinkActive {
+    background: var(--color-brand-50);
+  }
+
+  .utilityNav {
+    grid-area: utility;
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .utilityNav .navLink {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding-right: var(--space-2);
+    padding-left: var(--space-2);
+  }
+
+  .logoImg {
+    max-width: 112px;
+  }
+
+  .primaryNav .navLink {
+    padding: 0 var(--space-2);
   }
 }

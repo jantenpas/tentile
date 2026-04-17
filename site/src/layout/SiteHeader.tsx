@@ -4,7 +4,7 @@ import styles from './SiteHeader.module.css'
 import { useSidebar } from './SidebarContext'
 
 export default function SiteHeader() {
-  const { collapsed: sidebarCollapsed, toggle: onToggleSidebar } = useSidebar()
+  const { collapsed: sidebarCollapsed, toggle: onToggleSidebar, isMobile } = useSidebar()
   const [isDark, setIsDark] = useState(
     document.documentElement.getAttribute('data-theme') === 'dark'
   )
@@ -30,6 +30,11 @@ export default function SiteHeader() {
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
+  const sidebarToggleLabel = sidebarCollapsed
+    ? 'Open sidebar'
+    : isMobile
+      ? 'Close sidebar'
+      : 'Collapse sidebar'
 
   return (
     <header className={styles.header}>
@@ -38,8 +43,9 @@ export default function SiteHeader() {
           type="button"
           className={styles.sidebarToggle}
           onClick={onToggleSidebar}
-          aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          aria-pressed={!sidebarCollapsed}
+          aria-label={sidebarToggleLabel}
+          aria-controls="site-sidebar"
+          aria-expanded={!sidebarCollapsed}
         >
           <span className={styles.hamburger} aria-hidden="true">
             <span />

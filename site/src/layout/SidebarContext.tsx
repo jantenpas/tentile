@@ -3,6 +3,9 @@ import { createContext, useContext } from 'react'
 interface SidebarContextValue {
   collapsed: boolean
   toggle: () => void
+  collapse: () => void
+  expand: () => void
+  isMobile: boolean
 }
 
 export const SidebarContext = createContext<SidebarContextValue | null>(null)

@@ -1,25 +1,34 @@
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import {
   StyleGuideSectionContent,
   StyleGuideShowcase,
   styleGuideSections,
 } from './StyleGuideShowcase'
 
+function renderShowcase() {
+  return render(
+    <MemoryRouter>
+      <StyleGuideShowcase />
+    </MemoryRouter>
+  )
+}
+
 describe('StyleGuideShowcase', () => {
   it('renders the core style-guide sections', () => {
-    render(<StyleGuideShowcase />)
+    renderShowcase()
 
     expect(screen.getByText('The visual language behind Tentile')).toBeInTheDocument()
     for (const section of styleGuideSections) {
       expect(screen.getByRole('link', { name: new RegExp(section.name, 'i') })).toHaveAttribute(
         'href',
-        `#/style-guide/${section.slug}`
+        `/style-guide/${section.slug}`
       )
     }
   }, 10000)
 
   it('shows section descriptions on the style guide index', () => {
-    render(<StyleGuideShowcase />)
+    renderShowcase()
 
     expect(screen.getByText(/browse the core foundation areas/i)).toBeInTheDocument()
     expect(screen.getByText(/fonts, type scale, and text rhythm/i)).toBeInTheDocument()

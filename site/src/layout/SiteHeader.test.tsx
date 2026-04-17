@@ -4,7 +4,18 @@ import { MemoryRouter } from 'react-router-dom'
 import SiteHeader from './SiteHeader'
 import { SidebarContext } from './SidebarContext'
 
-function renderHeader(sidebarCtx = { collapsed: false, toggle: vi.fn() }) {
+function createSidebarContext(overrides = {}) {
+  return {
+    collapsed: false,
+    toggle: vi.fn(),
+    collapse: vi.fn(),
+    expand: vi.fn(),
+    isMobile: false,
+    ...overrides,
+  }
+}
+
+function renderHeader(sidebarCtx = createSidebarContext()) {
   return render(
     <MemoryRouter initialEntries={['/']}>
       <SidebarContext.Provider value={sidebarCtx}>
@@ -31,14 +42,24 @@ describe('SiteHeader', () => {
   it('calls toggle when the sidebar button is clicked', async () => {
     const user = userEvent.setup()
     const toggle = vi.fn()
-    renderHeader({ collapsed: false, toggle })
+    renderHeader(createSidebarContext({ collapsed: false, toggle }))
     await user.click(screen.getByRole('button', { name: /collapse sidebar/i }))
     expect(toggle).toHaveBeenCalledOnce()
   })
 
   it('reflects collapsed state in the sidebar toggle aria-label', () => {
-    renderHeader({ collapsed: true, toggle: vi.fn() })
-    expect(screen.getByRole('button', { name: /expand sidebar/i })).toBeInTheDocument()
+    renderHeader(createSidebarContext({ collapsed: true }))
+    const button = screen.getByRole('button', { name: /open sidebar/i })
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+    expect(button).toHaveAttribute('aria-controls', 'site-sidebar')
+  })
+
+  it('uses a close label when the mobile sidebar is open', () => {
+    renderHeader(createSidebarContext({ isMobile: true }))
+    expect(screen.getByRole('button', { name: /close sidebar/i })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
   })
 
   it('toggles the theme attribute on the document when the theme button is clicked', async () => {

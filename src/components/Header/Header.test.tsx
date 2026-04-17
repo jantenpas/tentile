@@ -24,9 +24,9 @@ describe('Header', () => {
   })
 
   it('applies variant and size classes', () => {
-    render(<Header title="Branded" variant="brand" size="lg" />)
+    render(<Header title="Elevated" variant="elevated" size="lg" />)
     const header = screen.getByRole('banner')
-    expect(header.className).toMatch(/brand/)
+    expect(header.className).toMatch(/elevated/)
     expect(header.className).toMatch(/lg/)
   })
 

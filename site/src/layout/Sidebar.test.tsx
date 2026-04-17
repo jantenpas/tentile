@@ -11,16 +11,23 @@ vi.mock('../data/components', () => ({
   ],
 }))
 
-function renderSidebar(collapsed = false) {
+function renderSidebar(collapsed = false, isMobile = false) {
   const toggle = vi.fn()
+  const collapse = vi.fn()
   render(
     <MemoryRouter initialEntries={['/']}>
-      <SidebarContext.Provider value={{ collapsed, toggle }}>
+      <SidebarContext.Provider value={{ collapsed, toggle, collapse, expand: vi.fn(), isMobile }}>
         <Sidebar />
       </SidebarContext.Provider>
     </MemoryRouter>
   )
-  return { toggle }
+  return { toggle, collapse }
+}
+
+function getSidebarElement() {
+  const sidebar = document.getElementById('site-sidebar')
+  expect(sidebar).toBeInTheDocument()
+  return sidebar as HTMLElement
 }
 
 describe('Sidebar', () => {
@@ -33,9 +40,7 @@ describe('Sidebar', () => {
 
   it('applies the collapsed class when collapsed', () => {
     renderSidebar(true)
-    expect(screen.getByRole('navigation', { name: 'Sidebar' }).className).toMatch(
-      /sidebarCollapsed/
-    )
+    expect(getSidebarElement().className).toMatch(/sidebarCollapsed/)
   })
 
   it('does not apply the collapsed class when expanded', () => {
@@ -61,5 +66,12 @@ describe('Sidebar', () => {
     renderSidebar()
     expect(screen.getByRole('link', { name: 'Alert' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Button' })).toBeInTheDocument()
+  })
+
+  it('collapses the mobile sidebar after a navigation link is clicked', async () => {
+    const user = userEvent.setup()
+    const { collapse } = renderSidebar(false, true)
+    await user.click(screen.getByRole('link', { name: 'Button' }))
+    expect(collapse).toHaveBeenCalledOnce()
   })
 })
